@@ -44,7 +44,8 @@ class Dejavu:
         self.songs = self.db.get_songs()
         self.songhashes_set = set()  # to know which ones we've computed before
         for song in self.songs:
-            song_hash = song[FIELD_FILE_SHA1]
+            song_hash = song[2]
+            # song_hash = song[FIELD_FILE_SHA1]
             self.songhashes_set.add(song_hash)
 
     def get_fingerprinted_songs(self) -> List[Dict[str, any]]:

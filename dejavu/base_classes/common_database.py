@@ -202,7 +202,14 @@ class CommonDatabase(BaseDatabase, metaclass=abc.ABCMeta):
         with self.cursor() as cur:
             for index in range(0, len(values), batch_size):
                 # Create our IN part of the query
-                query = self.SELECT_MULTIPLE % ', '.join([self.IN_MATCH] * len(values[index: index + batch_size]))
+
+                # query = self.SELECT_MULTIPLE %', '.join([self.IN_MATCH] * len(values[index: index + batch_size]))
+
+                query = f"""
+                    SELECT hash, song_id, offset
+                    FROM fingerprints
+                    WHERE hash IN ({', '.join([self.IN_MATCH] * len(values[index: index + batch_size]))});
+                    """
 
                 cur.execute(query, values[index: index + batch_size])
 
