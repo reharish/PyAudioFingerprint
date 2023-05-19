@@ -14,9 +14,9 @@ def parse_requirements(requirements):
         return reqs
 
 
-PACKAGE_NAME = "PyDejavu"
-PACKAGE_VERSION = "0.1.3"
-SUMMARY = 'Dejavu: Audio Fingerprinting in Python'
+PACKAGE_NAME = "PyAudioFingerprint"
+PACKAGE_VERSION = "0.1.0"
+SUMMARY = 'Audio Fingerprinting in Python with SQLite DB'
 DESCRIPTION = """
 Audio fingerprinting and recognition algorithm implemented in Python
 
@@ -30,6 +30,9 @@ Dejavu attempts to match the audio against the fingerprints held in the
 database, returning the song or recording being played.
 
 __ http://willdrevo.com/fingerprinting-and-audio-recognition-with-python/
+
+This package is a extended verison of willdrevo's Dejavu.
+
 """
 REQUIREMENTS = parse_requirements("requirements.txt")
 
@@ -38,11 +41,11 @@ setup(
     version=PACKAGE_VERSION,
     description=SUMMARY,
     long_description=DESCRIPTION,
-    author='Will Drevo',
-    author_email='will.drevo@gmail.com',
+    author='reharish',
+    author_email='harishbaburengaraj@gmail.com',
     maintainer="Will Drevo",
-    maintainer_email="will.drevo@gmail.com",
-    url='http://github.com/worldveil/dejavu',
+    maintainer_email="harishbaburengaraj@gmail.com",
+    url='http://github.com/reharish/pyAudioFingerprint',
     license='MIT License',
     include_package_data=True,
     packages=find_packages(),
